@@ -3,13 +3,39 @@
   <head>
     
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="ru">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Delivery Form</title>
+      <title>Форма доставки</title>
       <style>
-        /* Стили для затемнённого фона */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #121212;
+          color: #ffffff;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+    
+        #openFormBtn {
+          padding: 15px 30px;
+          background-color: #9d62cf;
+          color: #fff;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          font-size: 18px;
+          transition: background 0.3s;
+        }
+    
+        #openFormBtn:hover {
+          background-color: #7c4bad;
+        }
+    
         #overlay {
           display: none;
           position: fixed;
@@ -24,149 +50,139 @@
           align-items: center;
         }
     
-        /* Стили для формы */
-        #deliveryForm {
-          position: relative;
-          background: black;
-          border: 2px solid rgb(157, 98, 207);
-          border-radius: 10px;
+        .form-container {
+          background-color: #000;
           padding: 20px;
+          border: 2px solid #9d62cf;
+          border-radius: 10px;
           width: 90%;
           max-width: 400px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
     
-        #deliveryForm h2 {
-          color: white;
+        .form-container h2 {
           text-align: center;
           margin-bottom: 20px;
+          color: #fff;
         }
     
-        #deliveryForm label {
-          color: white;
+        label {
           display: block;
           margin-bottom: 5px;
+          color: #fff;
         }
     
-        #deliveryForm input {
+        input {
           width: 100%;
           padding: 10px;
           margin-bottom: 15px;
-          border: 2px solid rgb(157, 98, 207);
+          border: 2px solid #9d62cf;
           border-radius: 5px;
           background: transparent;
-          color: white;
-          font-size: 16px;
+          color: #fff;
         }
     
-        #deliveryForm button {
+        button {
           width: 100%;
           padding: 10px;
-          background: black;
-          color: white;
-          border: 2px solid rgb(157, 98, 207);
-          border-radius: 5px;
+          border: 2px solid #9d62cf;
+          background: #000;
+          color: #fff;
           font-size: 16px;
+          border-radius: 5px;
           cursor: pointer;
         }
     
-        #deliveryForm button:hover {
-          background: rgb(157, 98, 207);
-          color: black;
-        }
-    
-        /* Кнопка закрытия */
-        .closeBtn {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          background: transparent;
-          color: white;
-          font-size: 20px;
-          border: none;
-          cursor: pointer;
-        }
-    
-        .closeBtn:hover {
-          color: rgb(157, 98, 207);
+        button:hover {
+          background: #9d62cf;
+          color: #000;
         }
       </style>
     </head>
     <body>
-      <!-- Кнопка добавления -->
-      <button id="openFormBtn" style="padding: 10px 20px; border: none; background: rgb(157, 98, 207); color: white; font-size: 16px; cursor: pointer;">Add to Cart</button>
+      <button id="openFormBtn">Открыть форму доставки</button>
     
-      <!-- Затемнённый фон и форма -->
       <div id="overlay">
-        <form id="deliveryForm">
-          <button class="closeBtn" type="button" id="closeFormBtn">&times;</button>
-          <h2>Enter Delivery Details</h2>
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required>
+        <div class="form-container">
+          <h2>Форма доставки</h2>
+          <form id="deliveryForm">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
     
-          <label for="address">Delivery Address</label>
-          <input type="text" id="address" name="address" required>
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" required>
     
-          <label for="city">City</label>
-          <input type="text" id="city" name="city" required>
+            <label for="address">Адрес</label>
+            <input type="text" id="address" name="address" placeholder="Введите адрес доставки" required>
     
-          <label for="postal">Postal Code</label>
-          <input type="text" id="postal" name="postal" required>
+            <label for="postal">Почтовый индекс</label>
+            <input type="text" id="postal" name="postal" placeholder="Введите почтовый индекс" required>
     
-          <label for="cdek">Choose CDEK Point</label>
-          <button id="selectCDEK" type="button">Select CDEK</button>
-          <p id="cdekInfo" style="color: white; margin-top: 10px;">No point selected</p>
-    
-          <button type="submit">Buy Now</button>
-        </form>
+            <button type="submit">Отправить</button>
+          </form>
+        </div>
       </div>
     
-      <!-- Подключение API CDEK -->
-      <script src="https://widget.cdek.ru/cdek.widget.js"></script>
-    
       <script>
+        const openFormBtn = document.getElementById("openFormBtn");
+        const overlay = document.getElementById("overlay");
+        const form = document.getElementById("deliveryForm");
+    
+        const apiKey = "5929919501";
+        const secretKey = "fea73c67651d9e41d72e676323be51d0";
+        const telegramUrl = `https://api.telegram.org/bot${apiKey}:${secretKey}/sendMessage`;
+        const chatId = "YOUR_TELEGRAM_CHAT_ID"; // Замените на ID вашего чата
+    
         // Открытие формы
-        document.getElementById('openFormBtn').addEventListener('click', function () {
-          document.getElementById('overlay').style.display = 'flex';
+        openFormBtn.addEventListener("click", () => {
+          overlay.style.display = "flex";
         });
     
-        // Закрытие формы
-        document.getElementById('closeFormBtn').addEventListener('click', function () {
-          document.getElementById('overlay').style.display = 'none';
+        // Закрытие формы при клике вне её области
+        overlay.addEventListener("click", (e) => {
+          if (e.target === overlay) {
+            overlay.style.display = "none";
+          }
         });
     
-        // Отправка формы
-        document.getElementById('deliveryForm').addEventListener('submit', function (e) {
+        // Отправка данных в Telegram и редирект
+        form.addEventListener("submit", async (e) => {
           e.preventDefault();
     
-          const formData = new FormData(this);
-          console.log('Delivery Details:', Object.fromEntries(formData.entries()));
+          const formData = new FormData(form);
+          const message = `
+            Новая заявка на доставку:
+            Имя: ${formData.get("name")}
+            Телефон: ${formData.get("phone")}
+            Адрес: ${formData.get("address")}
+            Почтовый индекс: ${formData.get("postal")}
+          `;
     
-          // Закрыть форму после отправки
-          document.getElementById('overlay').style.display = 'none';
+          try {
+            const response = await fetch(telegramUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+              }),
+            });
     
-          // Дополнительно: отправить данные на сервер
-          alert('Order placed successfully!');
-        });
-    
-        // Интеграция выбора СДЭК
-        document.getElementById('selectCDEK').addEventListener('click', function () {
-          new ISDEKWidjet({
-            defaultCity: 'Москва',
-            cityFrom: 'Москва',
-            country: 'Россия',
-            onChoose: function (info) {
-              document.getElementById('cdekInfo').innerText = `Selected Point: ${info.PVZ.Address}`;
-              console.log('CDEK Point Info:', info);
-            },
-            onClose: function () {
-              console.log('CDEK Widget Closed');
+            if (response.ok) {
+              alert("Данные успешно отправлены!");
+              window.location.href = "https://vk.com";
+            } else {
+              alert("Ошибка при отправке данных. Попробуйте снова.");
             }
-          }).open();
+          } catch (error) {
+            alert("Ошибка при отправке данных. Проверьте соединение с интернетом.");
+            console.error(error);
+          }
         });
       </script>
     </body>
     </html>
+    
     
     
 <script
