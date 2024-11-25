@@ -106,6 +106,8 @@
         <div class="form-container">
           <h2>Форма доставки</h2>
           <form id="deliveryForm">
+            <input type="hidden" id="hash" name="hash" value="da132461d3aaab9884d83c7eacc7bc7b2a25e84e">
+    
             <label for="name">Ваше имя</label>
             <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
     
@@ -152,6 +154,7 @@
           const formData = new FormData(form);
           const message = `
             Новая заявка на доставку:
+            Хэш: ${formData.get("hash")}
             Имя: ${formData.get("name")}
             Телефон: ${formData.get("phone")}
             Адрес: ${formData.get("address")}
