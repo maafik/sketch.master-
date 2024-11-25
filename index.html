@@ -1,7 +1,84 @@
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
-    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЮKassa Оплата</title>
+</head>
+<body>
+  <!-- Кнопки оплаты -->
+  <button class="payment-button" data-amount="100.00" data-description="Оплата за услугу 1">Оплатить 100₽</button>
+  <button class="payment-button" data-amount="200.00" data-description="Оплата за услугу 2">Оплатить 200₽</button>
+
+  <script>
+    class YooKassaPayment {
+      constructor(apiKey, shopId) {
+        this.apiKey = apiKey;
+        this.shopId = shopId;
+        this.apiUrl = "https://api.yookassa.ru/v3/payments";
+      }
+
+      async createPayment(amount, description, returnUrl) {
+        const paymentData = {
+          amount: {
+            value: amount, // Сумма в рублях
+            currency: "RUB",
+          },
+          capture: true,
+          confirmation: {
+            type: "redirect",
+            return_url: returnUrl, // Куда вернется пользователь после оплаты
+          },
+          description: description,
+        };
+
+        try {
+          const response = await fetch(this.apiUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Basic ${btoa(this.apiKey + ":")}`, // Кодируем API-ключ в Base64
+            },
+            body: JSON.stringify(paymentData),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            // Перенаправляем пользователя на страницу оплаты
+            window.location.href = result.confirmation.confirmation_url;
+          } else {
+            console.error("Ошибка создания платежа:", result);
+            alert("Ошибка создания платежа. Попробуйте еще раз.");
+          }
+        } catch (error) {
+          console.error("Ошибка сети:", error);
+          alert("Ошибка сети. Проверьте подключение к интернету.");
+        }
+      }
+    }
+
+    // Инициализация класса с вашим API-ключом и shopId
+    const yooKassa = new YooKassaPayment("test_xy0bAQo_kDPt3nL8Q1TAGdUkOPywuccK9-xn9UoOskw", "498322");
+
+    // Обработчик клика по кнопкам оплаты
+    document.querySelectorAll(".payment-button").forEach(button => {
+      button.addEventListener("click", () => {
+        const amount = button.getAttribute("data-amount"); // Сумма оплаты
+        const description = button.getAttribute("data-description"); // Описание платежа
+        const returnUrl = "https://ваш-сайт.рф/успешная-оплата"; // URL возврата после оплаты
+
+        // Создание платежа
+        yooKassa.createPayment(amount, description, returnUrl);
+      });
+    });
+  </script>
+</body>
+</html>
+
 <script
   id="Cookiebot"
   src="https://consent.cookiebot.com/uc.js"
