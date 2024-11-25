@@ -2,6 +2,173 @@
 <html class="no-js" lang="en">
   <head>
     
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Delivery Form</title>
+      <style>
+        /* Стили для затемнённого фона */
+        #overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(5px);
+          z-index: 1000;
+          justify-content: center;
+          align-items: center;
+        }
+    
+        /* Стили для формы */
+        #deliveryForm {
+          position: relative;
+          background: black;
+          border: 2px solid rgb(157, 98, 207);
+          border-radius: 10px;
+          padding: 20px;
+          width: 90%;
+          max-width: 400px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    
+        #deliveryForm h2 {
+          color: white;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+    
+        #deliveryForm label {
+          color: white;
+          display: block;
+          margin-bottom: 5px;
+        }
+    
+        #deliveryForm input {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 2px solid rgb(157, 98, 207);
+          border-radius: 5px;
+          background: transparent;
+          color: white;
+          font-size: 16px;
+        }
+    
+        #deliveryForm button {
+          width: 100%;
+          padding: 10px;
+          background: black;
+          color: white;
+          border: 2px solid rgb(157, 98, 207);
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+    
+        #deliveryForm button:hover {
+          background: rgb(157, 98, 207);
+          color: black;
+        }
+    
+        /* Кнопка закрытия */
+        .closeBtn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: transparent;
+          color: white;
+          font-size: 20px;
+          border: none;
+          cursor: pointer;
+        }
+    
+        .closeBtn:hover {
+          color: rgb(157, 98, 207);
+        }
+      </style>
+    </head>
+    <body>
+      <!-- Кнопка добавления -->
+      <button id="openFormBtn" style="padding: 10px 20px; border: none; background: rgb(157, 98, 207); color: white; font-size: 16px; cursor: pointer;">Add to Cart</button>
+    
+      <!-- Затемнённый фон и форма -->
+      <div id="overlay">
+        <form id="deliveryForm">
+          <button class="closeBtn" type="button" id="closeFormBtn">&times;</button>
+          <h2>Enter Delivery Details</h2>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+    
+          <label for="address">Delivery Address</label>
+          <input type="text" id="address" name="address" required>
+    
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" required>
+    
+          <label for="postal">Postal Code</label>
+          <input type="text" id="postal" name="postal" required>
+    
+          <label for="cdek">Choose CDEK Point</label>
+          <button id="selectCDEK" type="button">Select CDEK</button>
+          <p id="cdekInfo" style="color: white; margin-top: 10px;">No point selected</p>
+    
+          <button type="submit">Buy Now</button>
+        </form>
+      </div>
+    
+      <!-- Подключение API CDEK -->
+      <script src="https://widget.cdek.ru/cdek.widget.js"></script>
+    
+      <script>
+        // Открытие формы
+        document.getElementById('openFormBtn').addEventListener('click', function () {
+          document.getElementById('overlay').style.display = 'flex';
+        });
+    
+        // Закрытие формы
+        document.getElementById('closeFormBtn').addEventListener('click', function () {
+          document.getElementById('overlay').style.display = 'none';
+        });
+    
+        // Отправка формы
+        document.getElementById('deliveryForm').addEventListener('submit', function (e) {
+          e.preventDefault();
+    
+          const formData = new FormData(this);
+          console.log('Delivery Details:', Object.fromEntries(formData.entries()));
+    
+          // Закрыть форму после отправки
+          document.getElementById('overlay').style.display = 'none';
+    
+          // Дополнительно: отправить данные на сервер
+          alert('Order placed successfully!');
+        });
+    
+        // Интеграция выбора СДЭК
+        document.getElementById('selectCDEK').addEventListener('click', function () {
+          new ISDEKWidjet({
+            defaultCity: 'Москва',
+            cityFrom: 'Москва',
+            country: 'Россия',
+            onChoose: function (info) {
+              document.getElementById('cdekInfo').innerText = `Selected Point: ${info.PVZ.Address}`;
+              console.log('CDEK Point Info:', info);
+            },
+            onClose: function () {
+              console.log('CDEK Widget Closed');
+            }
+          }).open();
+        });
+      </script>
+    </body>
+    </html>
+    
+    
 <script
   id="Cookiebot"
   src="https://consent.cookiebot.com/uc.js"
@@ -5991,7 +6158,7 @@ for (var attr in meta) {
     </span></div>
 </div><div class="product__tax caption rte"> 
 </div>
-              <div ><form method="post" action="cart/add" id="product-form-installment-template--20254446059863__main" accept-charset="UTF-8" class="installment caption-large" enctype="multipart/form-data"><input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="id" value="49367290446167">
+              <div ><form method="post" action="https://creatortattoo.com/cart/add" id="product-form-installment-template--20254446059863__main" accept-charset="UTF-8" class="installment caption-large" enctype="multipart/form-data"><input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="id" value="49367290446167">
                   
 <input type="hidden" name="product-id" value="9657572327767" /><input type="hidden" name="section-id" value="template--20254446059863__main" /></form></div>
 <noscript class="product-form__noscript-wrapper-template--20254446059863__main">
@@ -6037,7 +6204,7 @@ for (var attr in meta) {
           <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
         </svg>
         <span class="product-form__error-message"></span>
-      </div><form method="post" action="cart/add" id="product-form-template--20254446059863__main" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form"><input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" /><input
+      </div><form method="post" action="https://creatortattoo.com/cart/add" id="product-form-template--20254446059863__main" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form"><input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" /><input
           type="hidden"
           name="id"
           value="49367290446167"
@@ -6053,7 +6220,9 @@ for (var attr in meta) {
             <span>Add to cart
 </span>
 
-<link href="../cdn/shop/t/1/assets/component-loading-spinner.css@v=116724955567955766481701016592.css" rel="stylesheet" type="text/css" media="all" />
+<link href="openFormBtn" rel="stylesheet" type="text/css" media="all" />
+
+
 
 <div class="loading__spinner hidden">
   <svg

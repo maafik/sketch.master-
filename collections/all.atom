@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xml:lang="en" xmlns="http://www.w3.org/2005/Atom" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:s="http://jadedpixel.com/-/spec/shopify">
-  <id>https://creatortattoo.com/collections/all.atom</id>
-  <link rel="alternate" type="text/html" href="https://creatortattoo.com/collections/all"/>
-  <link rel="self" type="application/atom+xml" href="https://creatortattoo.com/collections/all.atom"/>
+  <id>collections/all.atom</id>
+  <link rel="alternate" type="text/html" href="collections/all"/>
+  <link rel="self" type="application/atom+xml" href="collections/all.atom"/>
   <title>Creator Tattoo</title>
   <updated>2024-10-29T18:29:18+01:00</updated>
   <author>
     <name>Creator Tattoo</name>
   </author>
   <entry>
-    <id>https://creatortattoo.com/products/9657572327767</id>
+    <id>products/9657572327767</id>
     <published>2024-10-29T18:29:18+01:00</published>
     <updated>2024-10-29T18:29:18+01:00</updated>
-    <link rel="alternate" type="text/html" href="https://creatortattoo.com/products/50-chicano-stencils"/>
+    <link rel="alternate" type="text/html" href="products/50-chicano-stencils"/>
     <title>50+ Chicano Stencils</title>
     <s:type></s:type>
     <s:vendor>Creator Tattoo</s:vendor>
@@ -37,7 +37,7 @@
 ]]>
     </summary>
     <s:variant>
-      <id>https://creatortattoo.com/products/9657572327767</id>
+      <id>products/9657572327767</id>
       <title>Default Title</title>
       <s:price currency="USD">9.90</s:price>
       <s:sku></s:sku>
@@ -45,10 +45,10 @@
     </s:variant>
   </entry>
   <entry>
-    <id>https://creatortattoo.com/products/9657568919895</id>
+    <id>products/9657568919895</id>
     <published>2024-10-29T18:28:42+01:00</published>
     <updated>2024-10-29T18:28:42+01:00</updated>
-    <link rel="alternate" type="text/html" href="https://creatortattoo.com/products/50-japanese-stencils"/>
+    <link rel="alternate" type="text/html" href="products/50-japanese-stencils"/>
     <title>50+ Japanese Stencils</title>
     <s:type></s:type>
     <s:vendor>Creator Tattoo</s:vendor>
@@ -73,7 +73,7 @@
 ]]>
     </summary>
     <s:variant>
-      <id>https://creatortattoo.com/products/9657568919895</id>
+      <id>products/9657568919895</id>
       <title>Default Title</title>
       <s:price currency="USD">9.90</s:price>
       <s:sku></s:sku>
@@ -81,10 +81,10 @@
     </s:variant>
   </entry>
   <entry>
-    <id>https://creatortattoo.com/products/9657566298455</id>
+    <id>products/9657566298455</id>
     <published>2024-10-29T18:27:53+01:00</published>
     <updated>2024-10-29T18:27:53+01:00</updated>
-    <link rel="alternate" type="text/html" href="https://creatortattoo.com/products/50-mandala-stencils"/>
+    <link rel="alternate" type="text/html" href="products/50-mandala-stencils"/>
     <title>50+ Mandala Stencils</title>
     <s:type></s:type>
     <s:vendor>Creator Tattoo</s:vendor>
@@ -109,7 +109,7 @@
 ]]>
     </summary>
     <s:variant>
-      <id>https://creatortattoo.com/products/9657566298455</id>
+      <id>products/9657566298455</id>
       <title>Default Title</title>
       <s:price currency="USD">9.90</s:price>
       <s:sku></s:sku>
@@ -117,10 +117,10 @@
     </s:variant>
   </entry>
   <entry>
-    <id>https://creatortattoo.com/products/9657570263383</id>
+    <id>products/9657570263383</id>
     <published>2024-10-29T18:26:51+01:00</published>
     <updated>2024-10-29T18:26:51+01:00</updated>
-    <link rel="alternate" type="text/html" href="https://creatortattoo.com/products/50-realistic-animals-stencils"/>
+    <link rel="alternate" type="text/html" href="products/50-realistic-animals-stencils"/>
     <title>50+ Realistic Animals Stencils</title>
     <s:type></s:type>
     <s:vendor>Creator Tattoo</s:vendor>
@@ -145,7 +145,7 @@
 ]]>
     </summary>
     <s:variant>
-      <id>https://creatortattoo.com/products/9657570263383</id>
+      <id>products/9657570263383</id>
       <title>Default Title</title>
       <s:price currency="USD">9.90</s:price>
       <s:sku></s:sku>
@@ -153,10 +153,10 @@
     </s:variant>
   </entry>
   <entry>
-    <id>https://creatortattoo.com/products/9657579110743</id>
+    <id>products/9657579110743</id>
     <published>2024-10-29T18:24:24+01:00</published>
     <updated>2024-10-29T18:24:24+01:00</updated>
-    <link rel="alternate" type="text/html" href="https://creatortattoo.com/products/50-religious-stencils"/>
+    <link rel="alternate" type="text/html" href="products/50-religious-stencils"/>
     <title>50+ Religious Stencils</title>
     <s:type></s:type>
     <s:vendor>Creator Tattoo</s:vendor>
@@ -181,7 +181,7 @@
 ]]>
     </summary>
     <s:variant>
-      <id>https://creatortattoo.com/products/9657579110743</id>
+      <id>products/9657579110743</id>
       <title>Default Title</title>
       <s:price currency="USD">9.90</s:price>
       <s:sku></s:sku>
@@ -189,10 +189,10 @@
     </s:variant>
   </entry>
   <entry>
-    <id>https://creatortattoo.com/products/8711014056279</id>
+    <id>products/8711014056279</id>
     <published>2024-01-15T15:18:18+01:00</published>
     <updated>2024-01-15T15:18:18+01:00</updated>
-    <link rel="alternate" type="text/html" href="https://creatortattoo.com/products/mega-bundle-for-tattoo-artist"/>
+    <link rel="alternate" type="text/html" href="products/mega-bundle-for-tattoo-artist"/>
     <title>Mega Bundle for Tattoo Artist</title>
     <s:type></s:type>
     <s:vendor>Creator Tattoo</s:vendor>
@@ -235,7 +235,7 @@
 ]]>
     </summary>
     <s:variant>
-      <id>https://creatortattoo.com/products/8711014056279</id>
+      <id>products/8711014056279</id>
       <title>Default Title</title>
       <s:price currency="USD">49.00</s:price>
       <s:sku></s:sku>
