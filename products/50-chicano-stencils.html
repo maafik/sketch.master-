@@ -82,6 +82,32 @@
           color: #fff;
         }
     
+        #suggestions {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          background-color: #1e1e1e;
+          border: 2px solid #9d62cf;
+          border-radius: 5px;
+          position: absolute;
+          width: 100%;
+          max-height: 150px;
+          overflow-y: auto;
+          z-index: 1050;
+        }
+    
+        #suggestions li {
+          padding: 10px;
+          border-bottom: 1px solid #9d62cf;
+          cursor: pointer;
+          transition: background 0.3s, color 0.3s;
+        }
+    
+        #suggestions li:hover {
+          background-color: #9d62cf;
+          color: #000;
+        }
+    
         button {
           width: 100%;
           padding: 10px;
@@ -106,16 +132,17 @@
         <div class="form-container">
           <h2>Форма доставки</h2>
           <form id="deliveryForm">
-            <input type="hidden" id="hash" name="hash" value="da132461d3aaab9884d83c7eacc7bc7b2a25e84e">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" placeholder="Введите имя" required>
     
-            <label for="name">Ваше имя</label>
-            <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+            <label for="address">Адрес</label>
+            <div style="position: relative;">
+              <input type="text" id="address" name="address" placeholder="Введите адрес доставки" required>
+              <ul id="suggestions" style="display: none;"></ul>
+            </div>
     
             <label for="phone">Телефон</label>
             <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" required>
-    
-            <label for="address">Адрес</label>
-            <input type="text" id="address" name="address" placeholder="Введите адрес доставки" required>
     
             <label for="postal">Почтовый индекс</label>
             <input type="text" id="postal" name="postal" placeholder="Введите почтовый индекс" required>
@@ -126,60 +153,86 @@
       </div>
     
       <script>
-        const openFormBtn = document.getElementById("openFormBtn");
-        const overlay = document.getElementById("overlay");
-        const form = document.getElementById("deliveryForm");
+        const dadataToken = "da132461d3aaab9884d83c7eacc7bc7b2a25e84e";
+        const telegramApiKey = "5929919501";
+        const telegramSecretKey = "fea73c67651d9e41d72e676323be51d0";
+        const telegramChatId = "YOUR_CHAT_ID"; // Замените на ID вашего канала
     
-        const apiKey = "5929919501";
-        const secretKey = "fea73c67651d9e41d72e676323be51d0";
-        const telegramUrl = `https://api.telegram.org/bot${apiKey}:${secretKey}/sendMessage`;
-        const chatId = "YOUR_TELEGRAM_CHAT_ID"; // Замените на ID вашего чата
+        const addressInput = document.getElementById("address");
+        const suggestionsList = document.getElementById("suggestions");
     
-        // Открытие формы
-        openFormBtn.addEventListener("click", () => {
-          overlay.style.display = "flex";
-        });
+        // Подсказки DaData
+        addressInput.addEventListener("input", async () => {
+          const query = addressInput.value.trim();
+          if (query.length < 3) {
+            suggestionsList.style.display = "none";
+            return;
+          }
     
-        // Закрытие формы при клике вне её области
-        overlay.addEventListener("click", (e) => {
-          if (e.target === overlay) {
-            overlay.style.display = "none";
+          const response = await fetch("https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Token ${dadataToken}`
+            },
+            body: JSON.stringify({ query, count: 4 })
+          });
+    
+          if (response.ok) {
+            const data = await response.json();
+            suggestionsList.innerHTML = "";
+            data.suggestions.forEach(suggestion => {
+              const li = document.createElement("li");
+              li.textContent = suggestion.value;
+              li.addEventListener("click", () => {
+                addressInput.value = suggestion.value;
+                suggestionsList.style.display = "none";
+              });
+              suggestionsList.appendChild(li);
+            });
+            suggestionsList.style.display = "block";
           }
         });
     
-        // Отправка данных в Telegram и редирект
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
+        // Отправка данных в Telegram
+        document.getElementById("deliveryForm").addEventListener("submit", async (event) => {
+          event.preventDefault();
     
-          const formData = new FormData(form);
-          const message = `
-            Новая заявка на доставку:
-            Хэш: ${formData.get("hash")}
-            Имя: ${formData.get("name")}
-            Телефон: ${formData.get("phone")}
-            Адрес: ${formData.get("address")}
-            Почтовый индекс: ${formData.get("postal")}
-          `;
+          const formData = new FormData(event.target);
+          const data = {
+            name: formData.get("name"),
+            address: formData.get("address"),
+            phone: formData.get("phone"),
+            postal: formData.get("postal")
+          };
     
-          try {
-            const response = await fetch(telegramUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                chat_id: chatId,
-                text: message,
-              }),
-            });
+          const telegramResponse = await fetch(`https://api.telegram.org/bot${telegramApiKey}:${telegramSecretKey}/sendMessage`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              chat_id: telegramChatId,
+              text: `Новая заявка: \nИмя: ${data.name}\nАдрес: ${data.address}\nТелефон: ${data.phone}\nПочтовый индекс: ${data.postal}`
+            })
+          });
     
-            if (response.ok) {
-              alert("Данные успешно отправлены!");
-              window.location.href = "https://vk.com";
-            } else {
-              alert("Ошибка при отправке данных. Попробуйте снова.");
-            }
-          } catch (error) {
-            alert("Ошибка при отправке данных. Проверьте соединение с интернетом.");
-            console.error(error);
+          if (telegramResponse.ok) {
+            alert("Форма успешно отправлена!");
+            window.location.href = "https://vk.com";
+          } else {
+            alert("Ошибка отправки. Пожалуйста, попробуйте еще раз.");
+          }
+        });
+    
+        // Открытие и закрытие формы
+        document.getElementById("openFormBtn").addEventListener("click", () => {
+          document.getElementById("overlay").style.display = "flex";
+        });
+    
+        document.getElementById("overlay").addEventListener("click", (e) => {
+          if (e.target === document.getElementById("overlay")) {
+            document.getElementById("overlay").style.display = "none";
           }
         });
       </script>
