@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en" xmlns="http://www.w3.org/2005/Atom" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:s="http://jadedpixel.com/-/spec/shopify">
+  <id>collections/all.atom</id>
+  <link rel="alternate" type="text/html" href="collections/all"/>
+  <link rel="self" type="application/atom+xml" href="collections/all.atom"/>
+  <title>Creator Tattoo</title>
+  <updated>2024-10-29T18:29:18+01:00</updated>
+  <author>
+    <name>Creator Tattoo</name>
+  </author>
+  <entry>
+    <id>products/9657572327767</id>
+    <published>2024-10-29T18:29:18+01:00</published>
+    <updated>2024-10-29T18:29:18+01:00</updated>
+    <link rel="alternate" type="text/html" href="products/50-chicano-stencils"/>
+    <title>50+ Chicano Stencils</title>
+    <s:type></s:type>
+    <s:vendor>Creator Tattoo</s:vendor>
+    <summary type="html">
+      <![CDATA[<table border="0">
+  <tr>
+    <td width="200"><img width="200" src="https://cdn.shopify.com/s/files/1/0794/1256/0215/files/18.png?v=1730120876"></td>
+    <td valign="bottom">
+      <p>
+
+        <strong>Vendor: </strong>Creator Tattoo<br>
+        <strong>Type: </strong><br>
+        <strong>Price: </strong>
+            9.90
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>Add bold, expressive elements to your artwork with over 50 Chicano-inspired stencils. Each design reflects the rich heritage and style of Chicano art, enabling you to infuse your creations with authentic, culturally resonant details.</p></td>
+  </tr>
+</table>
+]]>
+    </summary>
+    <s:variant>
+      <id>products/9657572327767</id>
+      <title>Default Title</title>
+      <s:price currency="USD">9.90</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products/9657568919895</id>
+    <published>2024-10-29T18:28:42+01:00</published>
+    <updated>2024-10-29T18:28:42+01:00</updated>
+    <link rel="alternate" type="text/html" href="products/50-japanese-stencils"/>
+    <title>50+ Japanese Stencils</title>
+    <s:type></s:type>
+    <s:vendor>Creator Tattoo</s:vendor>
+    <summary type="html">
+      <![CDATA[<table border="0">
+  <tr>
+    <td width="200"><img width="200" src="https://cdn.shopify.com/s/files/1/0794/1256/0215/files/16.png?v=1730120747"></td>
+    <td valign="bottom">
+      <p>
+
+        <strong>Vendor: </strong>Creator Tattoo<br>
+        <strong>Type: </strong><br>
+        <strong>Price: </strong>
+            9.90
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>Immerse your art in the elegance of Japanese aesthetics with over 50 finely crafted stencils. Each design draws inspiration from traditional Japanese symbols and patterns, allowing you to effortlessly add an authentic, cultural touch to your creations.</p></td>
+  </tr>
+</table>
+]]>
+    </summary>
+    <s:variant>
+      <id>products/9657568919895</id>
+      <title>Default Title</title>
+      <s:price currency="USD">9.90</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products/9657566298455</id>
+    <published>2024-10-29T18:27:53+01:00</published>
+    <updated>2024-10-29T18:27:53+01:00</updated>
+    <link rel="alternate" type="text/html" href="products/50-mandala-stencils"/>
+    <title>50+ Mandala Stencils</title>
+    <s:type></s:type>
+    <s:vendor>Creator Tattoo</s:vendor>
+    <summary type="html">
+      <![CDATA[<table border="0">
+  <tr>
+    <td width="200"><img width="200" src="https://cdn.shopify.com/s/files/1/0794/1256/0215/files/15.png?v=1730120697"></td>
+    <td valign="bottom">
+      <p>
+
+        <strong>Vendor: </strong>Creator Tattoo<br>
+        <strong>Type: </strong><br>
+        <strong>Price: </strong>
+            9.90
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>Discover over 50 intricate mandala stencils designed to bring harmony and depth to your artwork. Each stencil captures the essence of traditional mandalas, allowing you to effortlessly incorporate complex, mesmerizing patterns that add a touch of tranquility and elegance to your designs.</p></td>
+  </tr>
+</table>
+]]>
+    </summary>
+    <s:variant>
+      <id>products/9657566298455</id>
+      <title>Default Title</title>
+      <s:price currency="USD">9.90</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products/9657570263383</id>
+    <published>2024-10-29T18:26:51+01:00</published>
+    <updated>2024-10-29T18:26:51+01:00</updated>
+    <link rel="alternate" type="text/html" href="products/50-realistic-animals-stencils"/>
+    <title>50+ Realistic Animals Stencils</title>
+    <s:type></s:type>
+    <s:vendor>Creator Tattoo</s:vendor>
+    <summary type="html">
+      <![CDATA[<table border="0">
+  <tr>
+    <td width="200"><img width="200" src="https://cdn.shopify.com/s/files/1/0794/1256/0215/files/17.png?v=1730120812"></td>
+    <td valign="bottom">
+      <p>
+
+        <strong>Vendor: </strong>Creator Tattoo<br>
+        <strong>Type: </strong><br>
+        <strong>Price: </strong>
+            9.90
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>"Bring your art to life with over 50 realistic animal stencils, capturing the beauty and detail of wildlife. Perfect for adding lifelike touches to your designs effortlessly.</p></td>
+  </tr>
+</table>
+]]>
+    </summary>
+    <s:variant>
+      <id>products/9657570263383</id>
+      <title>Default Title</title>
+      <s:price currency="USD">9.90</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products/9657579110743</id>
+    <published>2024-10-29T18:24:24+01:00</published>
+    <updated>2024-10-29T18:24:24+01:00</updated>
+    <link rel="alternate" type="text/html" href="products/50-religious-stencils"/>
+    <title>50+ Religious Stencils</title>
+    <s:type></s:type>
+    <s:vendor>Creator Tattoo</s:vendor>
+    <summary type="html">
+      <![CDATA[<table border="0">
+  <tr>
+    <td width="200"><img width="200" src="https://cdn.shopify.com/s/files/1/0794/1256/0215/files/19.png?v=1730121072"></td>
+    <td valign="bottom">
+      <p>
+
+        <strong>Vendor: </strong>Creator Tattoo<br>
+        <strong>Type: </strong><br>
+        <strong>Price: </strong>
+            9.90
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>Enhance your creations with over 50 unique religious stencils, each crafted to add depth and symbolic meaning to your designs. Perfect for adding intricate, faith-inspired details with ease.</p></td>
+  </tr>
+</table>
+]]>
+    </summary>
+    <s:variant>
+      <id>products/9657579110743</id>
+      <title>Default Title</title>
+      <s:price currency="USD">9.90</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products/8711014056279</id>
+    <published>2024-01-15T15:18:18+01:00</published>
+    <updated>2024-01-15T15:18:18+01:00</updated>
+    <link rel="alternate" type="text/html" href="products/mega-bundle-for-tattoo-artist"/>
+    <title>Mega Bundle for Tattoo Artist</title>
+    <s:type></s:type>
+    <s:vendor>Creator Tattoo</s:vendor>
+    <summary type="html">
+      <![CDATA[<table border="0">
+  <tr>
+    <td width="200"><img width="200" src="https://cdn.shopify.com/s/files/1/0794/1256/0215/files/22.png?v=1731395190"></td>
+    <td valign="bottom">
+      <p>
+
+        <strong>Vendor: </strong>Creator Tattoo<br>
+        <strong>Type: </strong><br>
+        <strong>Price: </strong>
+            49.00
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><p> </p>
+<h2>The Ultimate Kit for Modern Tattoo Artists!</h2>
+<div>Everything you need, from 3D models to exclusive brushes, stencils, and other resources, in one mega bundle.</div>
+<ul>
+<li>300+ High-Detailed Brushes</li>
+<li>360+ Lettering and number Brushes</li>
+<li>1300 Tattoo Stencils </li>
+<li>3D Body Models ( regular, skinny, plus size, Male and female.)<br>
+</li>
+<li>10 Skin tones color palettes</li>
+<li>Step-by-Step Guide</li>
+<li>Download &amp; Installation video guide<br>
+</li>
+<li>Bonus #1: 5 Paper Textures<br>
+</li>
+<li>Bonus #2: 5 Skin textures<br>
+</li>
+</ul>
+<p><span style="color: rgb(152, 7, 165);"><strong><a href="https://procreatetattoo.co/" style="color: rgb(152, 7, 165);">Click here to learn more</a> →</strong></span></p></td>
+  </tr>
+</table>
+]]>
+    </summary>
+    <s:variant>
+      <id>products/8711014056279</id>
+      <title>Default Title</title>
+      <s:price currency="USD">49.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+  </entry>
+</feed>
