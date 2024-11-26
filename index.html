@@ -1,50 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Оплата через ЮKassa</title>
-</head>
-<body>
-  <button class="payment-button" data-amount="100.00" data-description="Оплата услуги">Оплатить 100 рублей</button>
-
-  <script>
-    document.querySelectorAll(".payment-button").forEach(button => {
-      button.addEventListener("click", async () => {
-        const amount = button.getAttribute("data-amount");
-        const description = button.getAttribute("data-description");
-        const returnUrl = "https://ваш-сайт.рф/успешная-оплата"; // Измените на ваш URL
-
-        try {
-          const response = await fetch("http://localhost:3000/create-payment", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ amount, description, returnUrl }),
-          });
-
-          const result = await response.json();
-
-          if (response.ok) {
-            window.location.href = result.url; // Переход на страницу оплаты
-          } else {
-            console.error("Ошибка создания платежа:", result.error);
-            alert("Ошибка создания платежа.");
-          }
-        } catch (error) {
-          console.error("Ошибка сети:", error);
-          alert("Ошибка сети. Проверьте подключение.");
-        }
-      });
-    });
-  </script>
-</body>
-</html>
-
+    
 <script
   id="Cookiebot"
   src="https://consent.cookiebot.com/uc.js"
@@ -10632,4 +10589,42 @@ for (var attr in meta) {
 <script type="module" src="https://cdn.shopify.com/extensions/fb08020f-1d93-43d4-a30d-cf3ed0b9c486/selleasy-27/assets/lb-upsell-components.esm.js" defer></script>
 
 </div></body>
+</html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата через ЮKassa</title>
+</head>
+<body>
+    <h1>Оплатить услугу</h1>
+    <button id="payButton">Оплатить 100 рублей</button>
+
+    <script>
+        // Обработчик клика по кнопке
+        document.getElementById('payButton').addEventListener('click', () => {
+            // Отправляем запрос на сервер для создания платежа
+            fetch('http://localhost:3000/create-payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.confirmation_url) {
+                    // Перенаправляем пользователя на страницу ЮKassa для завершения оплаты
+                    window.location.href = data.confirmation_url;
+                } else {
+                    alert('Ошибка при создании платежа');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Ошибка при подключении к серверу');
+            });
+        });
+    </script>
+</body>
 </html>
