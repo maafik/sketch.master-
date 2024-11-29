@@ -2,283 +2,6 @@
 <html class="no-js" lang="en">
   <head>
     <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оплата через ЮKassa</title>
-</head>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форма доставки</title>
-  <style>
-    /* Основные стили */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    #openFormBtn {
-      padding: 15px 30px;
-      background-color: #9d62cf;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 18px;
-      transition: background 0.3s;
-    }
-
-    #openFormBtn:hover {
-      background-color: #7c4bad;
-    }
-
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(5px);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .form-container, .thank-you-container {
-      background-color: #000;
-      padding: 20px;
-      border: 2px solid #8e938d;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 500px; /* Увеличиваем максимальную ширину */
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .form-container h2, .thank-you-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      color: #fff;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 2px solid #9d62cf;
-      border-radius: 5px;
-      background: #0f0f0f;
-      color: #fff;
-    }
-
-    button {
-      width: 100%;
-      padding: 10px;
-      border: 2px solid #9d62cf;
-      background: #000;
-      color: #fff;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #9d62cf;
-      color: #000;
-    }
-
-    .thank-you-container {
-      text-align: center;
-      color: #fff;
-      font-size: 18px;
-    }
-
-    .thank-you-container p {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    .thank-you-container a {
-      color: #9d62cf;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .thank-you-container a:hover {
-      text-decoration: underline;
-    }
-
-    .error-message {
-      color: red;
-      font-size: 14px;
-      margin-top: -10px;
-    }
-
-    /* Стиль для блока выбора связи */
-    .contact-methods {
-      display: flex;
-      justify-content: flex-start; /* Выравнивание по левому краю */
-      align-items: center;
-      gap: 20px; /* Расстояние между флажками */
-      margin-bottom: 15px;
-    }
-
-    .contact-methods label {
-      font-size: 14px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-    }
-
-    .contact-methods input {
-      margin-right: 10px; /* Увеличим расстояние между флажком и текстом */
-    }
-
-    /* Стили для радио кнопок */
-    .contact-methods input[type="radio"] {
-      accent-color: #9d62cf; /* Фиолетовый цвет для радио кнопок */
-      border: 2px solid #9d62cf; /* Фиолетовая обводка */
-      width: 20px;
-      height: 20px;
-      margin: 0;
-      margin-right: 10px;
-      position: relative;
-    }
-
-    .contact-methods input[type="radio"]:checked {
-      background-color: #9d62cf;
-      border-color: #9d62cf;
-    }
-
-  </style>
-</head>
-<body>
-  <button id="openFormBtn">Открыть форму доставки</button>
-
-  <div id="overlay">
-    <div class="form-container">
-      <h2>Форма доставки</h2>
-
-      <label for="deliveryType">Выберите способ доставки</label>
-      <select id="deliveryType" required>
-        <option value="courier">Курьер</option>
-        <option value="cdek">СДЭК</option>
-      </select>
-
-      <label for="city">Город, адрес</label>
-      <input type="text" id="city" name="city" placeholder="Введите город и адрес" required>
-      <div id="cityError" class="error-message"></div>
-
-      <label for="name">ФИО</label>
-      <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
-      <div id="nameError" class="error-message"></div>
-
-      <label for="phone">Телефон</label>
-      <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" required>
-      <div id="phoneError" class="error-message"></div>
-
-      <label for="contactMethod">Предпочтительный способ связи</label>
-      <div class="contact-methods">
-        <label>
-          <input type="radio" name="contactMethod" value="whatsapp" required>
-          WhatsApp
-        </label>
-        <label>
-          <input type="radio" name="contactMethod" value="telegram">
-          Telegram
-        </label>
-      </div>
-
-      <button id="submitBtn">Отправить</button>
-    </div>
-  </div>
-
-  <script>
-    const telegramToken = "7349206398:AAEthCsuxGhjdrvUOnFwFD478q7y474kRMM";
-    const telegramChatId = "5929919501";
-
-    const overlay = document.getElementById("overlay");
-    const openFormBtn = document.getElementById("openFormBtn");
-    const submitBtn = document.getElementById("submitBtn");
-
-    openFormBtn.addEventListener("click", () => {
-      overlay.style.display = "flex";
-    });
-
-    overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) {
-        overlay.style.display = "none";
-      }
-    });
-
-    submitBtn.addEventListener("click", async (event) => {
-      event.preventDefault();
-
-      document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-
-      const city = document.getElementById("city").value;
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const contactMethod = document.querySelector('input[name="contactMethod"]:checked')?.value;
-
-      if (!city || !name || !phone || !contactMethod) {
-        alert("Пожалуйста, заполните все обязательные поля.");
-        return;
-      }
-
-      const message = `
-        Новая заявка:
-        Город, адрес: ${city}
-        ФИО: ${name}
-        Телефон: ${phone}
-        Предпочтительный способ связи: ${contactMethod === "whatsapp" ? "WhatsApp" : "Telegram"}
-      `;
-
-      try {
-        await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ chat_id: telegramChatId, text: message }),
-        });
-
-        overlay.innerHTML = `
-          <div class="thank-you-container">
-            <h2>Спасибо за вашу заявку!</h2>
-            <p>Чтобы ускорить процесс, напишите <strong>< + ></strong> в:</p>
-            <p>
-              <a href="https://wa.me/YOUR_PHONE_NUMBER">WhatsApp</a> |
-              <a href="https://t.me/YOUR_TELEGRAM_USERNAME">Telegram</a>
-            </p>
-          </div>
-        `;
-      } catch (error) {
-        alert("Ошибка при отправке данных. Попробуйте позже.");
-      }
-    });
-  </script>
-</body>
-</html>
-
-
-</html>
 
 <script
   id="Cookiebot"
@@ -1645,22 +1368,22 @@ for (var attr in meta) {
                         aria-current="page"
                       
                     >
-                      Home
+                      Главная
                     </a></li><li><a
                       id="HeaderDrawer-our-collections"
                       href="collections/all.html"
                       class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
                       
                     >
-                      Our Collections
+                    Наши коллекции
                     </a></li><li><a
                       id="HeaderDrawer-contact-us"
                       href="pages/contact.html"
                       class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
                       
                     >
-                      Contact Us
-                    </a></li></ul>
+                    Связаться с нами
+                  </a></li></ul>
           </nav>
           <div class="menu-drawer__utility-links"><div class="menu-drawer__localization header-localization"><noscript><form method="post" action="localization" id="HeaderCountryMobileFormNoScriptDrawer" accept-charset="UTF-8" class="localization-form" enctype="multipart/form-data"><input type="hidden" name="form_type" value="localization" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="return_to" value="/" /><div class="localization-form__select">
                         <h2 class="visually-hidden" id="HeaderCountryMobileLabelNoScriptDrawer">
@@ -2869,20 +2592,7 @@ for (var attr in meta) {
                         <h2 class="visually-hidden" id="HeaderCountryMobileLabel">
                           Country/region
                         </h2><div class="disclosure">
-  <button
-    type="button"
-    class="disclosure__button localization-form__select localization-selector link link--text caption-large"
-    aria-expanded="false"
-    aria-controls="HeaderCountryMobileList"
-    aria-describedby="HeaderCountryMobileLabel"
-  >
-    <span>USD
-      $ | Italy</span>
-    <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
-</svg>
 
-  </button>
   <div class="disclosure__list-wrapper" hidden>
     <ul id="HeaderCountryMobileList" role="list" class="disclosure__list list-unstyled"><li class="disclosure__item" tabindex="-1">
           <a
@@ -5736,13 +5446,7 @@ for (var attr in meta) {
 <input type="hidden" name="country_code" value="IT">
 </div></form></localization-form>
                 
-</div><ul class="list list-social list-unstyled" role="list"><li class="list-social__item">
-                  <a href="https://www.facebook.com/profile.php?id=61555598067773" class="list-social__link link"><svg aria-hidden="true" focusable="false" class="icon icon-facebook" viewBox="0 0 20 20">
-  <path fill="currentColor" d="M18 10.049C18 5.603 14.419 2 10 2c-4.419 0-8 3.603-8 8.049C2 14.067 4.925 17.396 8.75 18v-5.624H6.719v-2.328h2.03V8.275c0-2.017 1.195-3.132 3.023-3.132.874 0 1.79.158 1.79.158v1.98h-1.009c-.994 0-1.303.621-1.303 1.258v1.51h2.219l-.355 2.326H11.25V18c3.825-.604 6.75-3.933 6.75-7.951Z"/>
-</svg>
-<span class="visually-hidden">Facebook</span>
-                  </a>
-                </li></ul>
+</div>
           </div>
         </div>
       </div>
@@ -5763,7 +5467,7 @@ for (var attr in meta) {
             <span
                 class="header__active-menu-item"
               
-            >Home</span>
+            >Главная</span>
           </a></li><li><a
             id="HeaderMenu-our-collections"
             href="collections/all.html"
@@ -5771,7 +5475,7 @@ for (var attr in meta) {
             
           >
             <span
-            >Our Collections</span>
+            >Наши коллекции</span>
           </a></li><li><a
             id="HeaderMenu-contact-us"
             href="pages/contact.html"
@@ -5779,121 +5483,14 @@ for (var attr in meta) {
             
           >
             <span
-            >Contact Us</span>
+            >Связаться с нами</span>
           </a></li></ul>
 </nav>
 
 <h1 class="header__heading"><a href="index.html" class="header__heading-link link link--text focus-inset"><div class="header__heading-logo-wrapper">
                 
                 <img src="cdn/shop/files/logo_04a77620-f94e-41b1-a192-43809715d707.png@v=1731431320&amp;width=600" alt="Creator Tattoo" srcset="cdn/shop/files/logo_04a77620-f94e-41b1-a192-43809715d707.png@v=1731431320&amp;width=120=120 12cdn/shop/files/logo_04a77620-f94e-41b1-a192-43809715d707.png@v=1731431320&amp;width=180idth=18cdn/shop/files/logo_04a77620-f94e-41b1-a192-43809715d707.png@v=1731431320&amp;width=240mp;width=240 240w" width="120" height="60.0" loading="eager" class="header__heading-logo" sizes="(min-width: 750px) 120px, 50vw">
-              </div></a></h1><div class="header__icons">
-      <div class="desktop-localization-wrapper">
-</div>
-      
-
-<details-modal class="header__search">
-  <details>
-    <summary
-      class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
-      aria-haspopup="dialog"
-      aria-label="Search"
-    >
-      <span>
-        <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false">
-          <use href="#icon-search">
-        </svg>
-        <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
-          <use href="#icon-close">
-        </svg>
-      </span>
-    </summary>
-    <div
-      class="search-modal modal__content gradient"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Search"
-    >
-      <div class="modal-overlay"></div>
-      <div
-        class="search-modal__content search-modal__content-bottom"
-        tabindex="-1"
-      ><predictive-search class="search-modal__form" data-loading-text="Loading..."><form action="search" method="get" role="search" class="search search-modal__form">
-          <div class="field">
-            <input
-              class="search__input field__input"
-              id="Search-In-Modal"
-              type="search"
-              name="q"
-              value=""
-              placeholder="Search"role="combobox"
-                aria-expanded="false"
-                aria-owns="predictive-search-results"
-                aria-controls="predictive-search-results"
-                aria-haspopup="listbox"
-                aria-autocomplete="list"
-                autocorrect="off"
-                autocomplete="off"
-                autocapitalize="off"
-                spellcheck="false">
-            <label class="field__label" for="Search-In-Modal">Search</label>
-            <input type="hidden" name="options[prefix]" value="last">
-            <button
-              type="reset"
-              class="reset__button field__button hidden"
-              aria-label="Clear search term"
-            >
-              <svg class="icon icon-close" aria-hidden="true" focusable="false">
-                <use xlink:href="#icon-reset">
-              </svg>
-            </button>
-            <button class="search__button field__button" aria-label="Search">
-              <svg class="icon icon-search" aria-hidden="true" focusable="false">
-                <use href="#icon-search">
-              </svg>
-            </button>
-          </div><div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-
-<link href="cdn/shop/t/1/assets/component-loading-spinner.css@v=116724955567955766481701016592.css" rel="stylesheet" type="text/css" media="all" />
-
-<div class="predictive-search__loading-state">
-  <svg
-    aria-hidden="true"
-    focusable="false"
-    class="spinner"
-    viewBox="0 0 66 66"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-  </svg>
-</div>
-</div>
-
-            <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span></form></predictive-search><button
-          type="button"
-          class="search-modal__close-button modal__close-button link link--text focus-inset"
-          aria-label="Close"
-        >
-          <svg class="icon icon-close" aria-hidden="true" focusable="false">
-            <use href="#icon-close">
-          </svg>
-        </button>
-      </div>
-    </div>
-  </details>
-</details-modal>
-
-<a href="cart.html" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble"><svg
-  class="icon icon-cart-empty"
-  aria-hidden="true"
-  focusable="false"
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 40 40"
-  fill="none"
->
-  <path d="m15.75 11.8h-3.16l-.77 11.6a5 5 0 0 0 4.99 5.34h7.38a5 5 0 0 0 4.99-5.33l-.78-11.61zm0 1h-2.22l-.71 10.67a4 4 0 0 0 3.99 4.27h7.38a4 4 0 0 0 4-4.27l-.72-10.67h-2.22v.63a4.75 4.75 0 1 1 -9.5 0zm8.5 0h-7.5v.63a3.75 3.75 0 1 0 7.5 0z" fill="currentColor" fill-rule="evenodd"/>
-</svg>
-<span class="visually-hidden">Cart</span></a>
-    </div>
+              </div></a></h1>
   </header>
 </div>
 
@@ -9271,7 +8868,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-2 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:center;--c:#9807A5;word-break:break-word;overflow:hidden"
-        >Contact us at:<strong> info@creatortattoo.com</strong></h2>
+        >Наши контакты:<strong> maafik@66.ru</strong></h2>
       </div>
     </div>
     </gp-text>
@@ -9288,7 +8885,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-heading-1 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:center;--c:#FFFFFF;word-break:break-word;overflow:hidden"
-        ><p>Frequently Asked Questions</p></h2>
+        ><p>Часто задаваемые вопросы</p></h2>
       </div>
     </div>
     </gp-text>
@@ -9388,7 +8985,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden gp-g-paragraph-1"
           style="--w:100%;--weight:bold;word-break:break-word;overflow:hidden"
-        ><p>How do I receive the bundle?</p></div>
+        ><p>Что если картина повредится при отправке?</p></div>
       </div>
     </div>
     </gp-text>
@@ -9425,7 +9022,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-2 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url(index.html);--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        ><p>After your purchase, you'll instantly receive a download link. This link allows you to download the bundle directly to your device. It's a quick and easy process, ensuring you can start using the tools immediately.</p></div>
+        ><p>Мы тщательно разрабатываем и упаковываем каждую картину, используя безопасные и высококачественные материалы для упаковки. Мы гарантируем, что ваша картина будет защищена на всех этапах доставки.</p></div>
       </div>
     </div>
     </gp-text>
@@ -9504,7 +9101,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden gp-g-paragraph-1"
           style="--w:100%;--weight:bold;word-break:break-word;overflow:hidden"
-        ><p>Is this bundle suitable for beginners?</p></div>
+        ><p>Могу ли я оплатить половину стоимости за картину в качестве предоплаты?</p></div>
       </div>
     </div>
     </gp-text>
@@ -9541,7 +9138,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-2 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url(index.html);--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        ><p>Absolutely! This bundle is great for both professional artists and beginners. It's good for anyone interested in tattoo design, not just pros.</p></div>
+        ><p>Да, вы можете оплатить 50% от общей суммы. Остальную часть вы оплачиваете после получения картины. Для этого свяжитесь с нами через WhatsApp, и мы оформим заказ.</p></div>
       </div>
     </div>
     </gp-text>
@@ -9620,7 +9217,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden gp-g-paragraph-1"
           style="--w:100%;--weight:bold;word-break:break-word;overflow:hidden"
-        ><p>How do I install the tools in Procreate?</p></div>
+        ><p>Как долго длится доставка картины?</p></div>
       </div>
     </div>
     </gp-text>
@@ -9657,7 +9254,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-2 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url(index.html);--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        ><p>Installation is simple and straightforward. Our step-by-step guide walks you through the process, ensuring a smooth setup. Plus, if you encounter any issues, our customer support team is ready to help you get everything up and running.</p></div>
+        ><p>Обычно доставка занимает от 7 до 14 рабочих дней в зависимости от вашего местоположения. Мы всегда уведомляем вас о статусе отправления и предоставляем номер для отслеживания.</p></div>
       </div>
     </div>
     </gp-text>
@@ -9736,7 +9333,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden gp-g-paragraph-1"
           style="--w:100%;--weight:bold;word-break:break-word;overflow:hidden"
-        ><p>Can I use this bundle on multiple devices?</p></div>
+        ><p>Можно ли заказать картину на заказ, с учётом моих пожеланий?</p></div>
       </div>
     </div>
     </gp-text>
@@ -9773,7 +9370,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-2 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url(index.html);--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        ><p>You can use this bundle on any <strong>iOS</strong> device you own (iPad &amp; iPhone), whether you're working in the studio or at home. However, please note that it cannot be used on PCs, laptops, or smartphones. This ensures optimal performance and compatibility with Procreate brushes designed specifically for tablet use.</p></div>
+        ><p>Конечно, мы можем создать картину, полностью соответствующую вашим пожеланиям. Напишите нам о своих идеях, и мы с удовольствием обсудим детали.</p></div>
       </div>
     </div>
     </gp-text>
@@ -9852,7 +9449,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden gp-g-paragraph-1"
           style="--w:100%;--weight:bold;word-break:break-word;overflow:hidden"
-        ><p>Is this a one-time payment?</p></div>
+        ><p>Как я могу узнать, что моя картина готова к отправке?</p></div>
       </div>
     </div>
     </gp-text>
@@ -9889,7 +9486,7 @@ for (var attr in meta) {
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-2 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url(index.html);--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        ><p>Yes. Our bundle is available as a one-time purchase. There are no recurring fees or subscriptions, so you pay once and enjoy the full benefits of the bundle for ALL your next designs!</p></div>
+        ><p>Мы уведомим вас, как только картина будет готова и отправлена. Вы получите трекинг-номер для отслеживания посылки, чтобы быть в курсе статуса доставки.</p></div>
       </div>
     </div>
     </gp-text>
@@ -10007,23 +9604,7 @@ for (var attr in meta) {
     </div>
    
     
-  <gp-text data-id="gmYLJIfUOB">
-    <div
-      parentTag="Col"
-        class="gmYLJIfUOB "
-        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mt:var(--g-s-xxs);--mb:0px"
-      >
-      <div class="gp-flex" style="--jc:left">
-        <div
-          
-          data-gp-text
-          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-3 gp-text"
-          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:#777777;word-break:break-word;--bgc:transparent;--bgi:url(index.html);--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        ><p>This Website is not a part of Meta or Meta Platforms, Inc. Additionally, this site is NOT endorsed by Meta in any way.</p><p>META is a trademark of Meta Platforms, Inc.</p><p>CY60095067I</p></div>
-      </div>
-    </div>
-    </gp-text>
-    
+   
     </div>
     </div>
   
@@ -10376,40 +9957,40 @@ for (var attr in meta) {
                   data-cascade
                   style="--animation-order: 1;"
                 
-              ><h2 class="footer-block__heading inline-richtext">Explore</h2><ul class="footer-block__details-content list-unstyled"><li>
+              ><h2 class="footer-block__heading inline-richtext">Исследовать раздел</h2><ul class="footer-block__details-content list-unstyled"><li>
                             <a
                               href="index.html"
                               class="link link--text list-menu__item list-menu__item--link list-menu__item--active"
                             >
-                              Home
+                            Главная
                             </a>
                           </li><li>
                             <a
                               href="pages/contact.html"
                               class="link link--text list-menu__item list-menu__item--link"
                             >
-                              Contact Us
+                            Свяжитесь с нами
                             </a>
                           </li><li>
                             <a
                               href="policies/privacy-policy.html"
                               class="link link--text list-menu__item list-menu__item--link"
                             >
-                              Privacy Policy
+                            Политика конфиденциальности
                             </a>
                           </li><li>
                             <a
                               href="policies/terms-of-service.html"
                               class="link link--text list-menu__item list-menu__item--link"
                             >
-                              Terms of Service
+                            Условия обслуживания
                             </a>
                           </li><li>
                             <a
                               href="policies/refund-policy.html"
                               class="link link--text list-menu__item list-menu__item--link"
                             >
-                              Refund Policy
+                            Политика возврата
                             </a>
                           </li></ul></div><div
                 class="footer-block grid__item scroll-trigger animate--slide-in"
@@ -10418,24 +9999,12 @@ for (var attr in meta) {
                   data-cascade
                   style="--animation-order: 2;"
                 
-              ><div class="footer-block__details-content footer-block-image center"><div
-                          class="footer-block__image-wrapper"
-                          style="max-width: min(100%, 105px);"
-                        >
-                          <img
-                            srcset="cdn/shop/files/logo_04a77620-f94e-41b1-a192-43809715d707.png@v=1731431320&amp;width=105, cdn/shop/files/logo_04a77620-f94e-41b1-a192-43809715d707.png@v=1731431320&amp;width=210 2x"
-                            src="cdn/shop/files/logo_04a77620-f94e-41b1-a192-43809715d707.png@v=1731431320&amp;width=760"
-                            alt=""
-                            loading="lazy"
-                            width="500"
-                            height="250"
-                          >
-                        </div></div></div></div><div
+              ></div></div><div
           class="footer-block--newsletter scroll-trigger animate--slide-in"
           
             data-cascade
           
-        ><div class="footer-block__newsletter"><h2 class="footer-block__heading inline-richtext">Subscribe to our emails</h2><form method="post" action="contact#ContactFooter" id="ContactFooter" accept-charset="UTF-8" class="footer__newsletter newsletter-form"><input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="contact[tags]" value="newsletter">
+        ><div class="footer-block__newsletter"><h2 class="footer-block__heading inline-richtext">Подпишитесь на нашу рассылку</h2><form method="post" action="contact#ContactFooter" id="ContactFooter" accept-charset="UTF-8" class="footer__newsletter newsletter-form"><input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" /><input type="hidden" name="contact[tags]" value="newsletter">
                 <div class="newsletter-form__field-wrapper">
                   <div class="field">
                     <input
@@ -10476,13 +10045,7 @@ for (var attr in meta) {
                     </button>
                   </div></div></form></div>
 
-<ul class="list-unstyled list-social footer__list-social" role="list"><li class="list-social__item">
-      <a href="https://www.facebook.com/profile.php?id=61555598067773" class="link list-social__link"><svg aria-hidden="true" focusable="false" class="icon icon-facebook" viewBox="0 0 20 20">
-  <path fill="currentColor" d="M18 10.049C18 5.603 14.419 2 10 2c-4.419 0-8 3.603-8 8.049C2 14.067 4.925 17.396 8.75 18v-5.624H6.719v-2.328h2.03V8.275c0-2.017 1.195-3.132 3.023-3.132.874 0 1.79.158 1.79.158v1.98h-1.009c-.994 0-1.303.621-1.303 1.258v1.51h2.219l-.355 2.326H11.25V18c3.825-.604 6.75-3.933 6.75-7.951Z"/>
-</svg>
-<span class="visually-hidden">Facebook</span>
-      </a>
-    </li></ul>
+
 </div>
       </div><div
     class="footer__content-bottom scroll-trigger animate--slide-in"
@@ -10492,27 +10055,13 @@ for (var attr in meta) {
   >
     <div class="footer__content-bottom-wrapper page-width">
       <div class="footer__column footer__localization isolate"></div>
-      <div class="footer__column footer__column--info"><div class="footer__payment">
-            <span class="visually-hidden">Payment methods</span>
-            <ul class="list list-payment" role="list"><li class="list-payment__item">
-                  <svg class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-american_express" viewBox="0 0 38 24" width="38" height="24"><title id="pi-american_express">American Express</title><path fill="#000" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3Z" opacity=".07"/><path fill="#006FCF" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32Z"/><path fill="#FFF" d="M22.012 19.936v-8.421L37 11.528v2.326l-1.732 1.852L37 17.573v2.375h-2.766l-1.47-1.622-1.46 1.628-9.292-.02Z"/><path fill="#006FCF" d="M23.013 19.012v-6.57h5.572v1.513h-3.768v1.028h3.678v1.488h-3.678v1.01h3.768v1.531h-5.572Z"/><path fill="#006FCF" d="m28.557 19.012 3.083-3.289-3.083-3.282h2.386l1.884 2.083 1.89-2.082H37v.051l-3.017 3.23L37 18.92v.093h-2.307l-1.917-2.103-1.898 2.104h-2.321Z"/><path fill="#FFF" d="M22.71 4.04h3.614l1.269 2.881V4.04h4.46l.77 2.159.771-2.159H37v8.421H19l3.71-8.421Z"/><path fill="#006FCF" d="m23.395 4.955-2.916 6.566h2l.55-1.315h2.98l.55 1.315h2.05l-2.904-6.566h-2.31Zm.25 3.777.875-2.09.873 2.09h-1.748Z"/><path fill="#006FCF" d="M28.581 11.52V4.953l2.811.01L32.84 9l1.456-4.046H37v6.565l-1.74.016v-4.51l-1.644 4.494h-1.59L30.35 7.01v4.51h-1.768Z"/></svg>
-
-                </li><li class="list-payment__item">
-                  <svg class="icon icon--full-color" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" x="0" y="0" width="38" height="24" viewBox="0 0 165.521 105.965" xml:space="preserve" aria-labelledby="pi-apple_pay"><title id="pi-apple_pay">Apple Pay</title><path fill="#000" d="M150.698 0H14.823c-.566 0-1.133 0-1.698.003-.477.004-.953.009-1.43.022-1.039.028-2.087.09-3.113.274a10.51 10.51 0 0 0-2.958.975 9.932 9.932 0 0 0-4.35 4.35 10.463 10.463 0 0 0-.975 2.96C.113 9.611.052 10.658.024 11.696a70.22 70.22 0 0 0-.022 1.43C0 13.69 0 14.256 0 14.823v76.318c0 .567 0 1.132.002 1.699.003.476.009.953.022 1.43.028 1.036.09 2.084.275 3.11a10.46 10.46 0 0 0 .974 2.96 9.897 9.897 0 0 0 1.83 2.52 9.874 9.874 0 0 0 2.52 1.83c.947.483 1.917.79 2.96.977 1.025.183 2.073.245 3.112.273.477.011.953.017 1.43.02.565.004 1.132.004 1.698.004h135.875c.565 0 1.132 0 1.697-.004.476-.002.952-.009 1.431-.02 1.037-.028 2.085-.09 3.113-.273a10.478 10.478 0 0 0 2.958-.977 9.955 9.955 0 0 0 4.35-4.35c.483-.947.789-1.917.974-2.96.186-1.026.246-2.074.274-3.11.013-.477.02-.954.022-1.43.004-.567.004-1.132.004-1.699V14.824c0-.567 0-1.133-.004-1.699a63.067 63.067 0 0 0-.022-1.429c-.028-1.038-.088-2.085-.274-3.112a10.4 10.4 0 0 0-.974-2.96 9.94 9.94 0 0 0-4.35-4.35A10.52 10.52 0 0 0 156.939.3c-1.028-.185-2.076-.246-3.113-.274a71.417 71.417 0 0 0-1.431-.022C151.83 0 151.263 0 150.698 0z" /><path fill="#FFF" d="M150.698 3.532l1.672.003c.452.003.905.008 1.36.02.793.022 1.719.065 2.583.22.75.135 1.38.34 1.984.648a6.392 6.392 0 0 1 2.804 2.807c.306.6.51 1.226.645 1.983.154.854.197 1.783.218 2.58.013.45.019.9.02 1.36.005.557.005 1.113.005 1.671v76.318c0 .558 0 1.114-.004 1.682-.002.45-.008.9-.02 1.35-.022.796-.065 1.725-.221 2.589a6.855 6.855 0 0 1-.645 1.975 6.397 6.397 0 0 1-2.808 2.807c-.6.306-1.228.511-1.971.645-.881.157-1.847.2-2.574.22-.457.01-.912.017-1.379.019-.555.004-1.113.004-1.669.004H14.801c-.55 0-1.1 0-1.66-.004a74.993 74.993 0 0 1-1.35-.018c-.744-.02-1.71-.064-2.584-.22a6.938 6.938 0 0 1-1.986-.65 6.337 6.337 0 0 1-1.622-1.18 6.355 6.355 0 0 1-1.178-1.623 6.935 6.935 0 0 1-.646-1.985c-.156-.863-.2-1.788-.22-2.578a66.088 66.088 0 0 1-.02-1.355l-.003-1.327V14.474l.002-1.325a66.7 66.7 0 0 1 .02-1.357c.022-.792.065-1.717.222-2.587a6.924 6.924 0 0 1 .646-1.981c.304-.598.7-1.144 1.18-1.623a6.386 6.386 0 0 1 1.624-1.18 6.96 6.96 0 0 1 1.98-.646c.865-.155 1.792-.198 2.586-.22.452-.012.905-.017 1.354-.02l1.677-.003h135.875" /><g><g><path fill="#000" d="M43.508 35.77c1.404-1.755 2.356-4.112 2.105-6.52-2.054.102-4.56 1.355-6.012 3.112-1.303 1.504-2.456 3.959-2.156 6.266 2.306.2 4.61-1.152 6.063-2.858" /><path fill="#000" d="M45.587 39.079c-3.35-.2-6.196 1.9-7.795 1.9-1.6 0-4.049-1.8-6.698-1.751-3.447.05-6.645 2-8.395 5.1-3.598 6.2-.95 15.4 2.55 20.45 1.699 2.5 3.747 5.25 6.445 5.151 2.55-.1 3.549-1.65 6.647-1.65 3.097 0 3.997 1.65 6.696 1.6 2.798-.05 4.548-2.5 6.247-5 1.95-2.85 2.747-5.6 2.797-5.75-.05-.05-5.396-2.101-5.446-8.251-.05-5.15 4.198-7.6 4.398-7.751-2.399-3.548-6.147-3.948-7.447-4.048" /></g><g><path fill="#000" d="M78.973 32.11c7.278 0 12.347 5.017 12.347 12.321 0 7.33-5.173 12.373-12.529 12.373h-8.058V69.62h-5.822V32.11h14.062zm-8.24 19.807h6.68c5.07 0 7.954-2.729 7.954-7.46 0-4.73-2.885-7.434-7.928-7.434h-6.706v14.894z" /><path fill="#000" d="M92.764 61.847c0-4.809 3.665-7.564 10.423-7.98l7.252-.442v-2.08c0-3.04-2.001-4.704-5.562-4.704-2.938 0-5.07 1.507-5.51 3.82h-5.252c.157-4.86 4.731-8.395 10.918-8.395 6.654 0 10.995 3.483 10.995 8.89v18.663h-5.38v-4.497h-.13c-1.534 2.937-4.914 4.782-8.579 4.782-5.406 0-9.175-3.222-9.175-8.057zm17.675-2.417v-2.106l-6.472.416c-3.64.234-5.536 1.585-5.536 3.95 0 2.288 1.975 3.77 5.068 3.77 3.95 0 6.94-2.522 6.94-6.03z" /><path fill="#000" d="M120.975 79.652v-4.496c.364.051 1.247.103 1.715.103 2.573 0 4.029-1.09 4.913-3.899l.52-1.663-9.852-27.293h6.082l6.863 22.146h.13l6.862-22.146h5.927l-10.216 28.67c-2.34 6.577-5.017 8.735-10.683 8.735-.442 0-1.872-.052-2.261-.157z" /></g></g></svg>
-
-                </li><li class="list-payment__item">
-                  <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-master"><title id="pi-master">Mastercard</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/><circle fill="#EB001B" cx="15" cy="12" r="7"/><circle fill="#F79E1B" cx="23" cy="12" r="7"/><path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"/></svg>
-                </li><li class="list-payment__item">
-                  <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal"><title id="pi-paypal">PayPal</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/><path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"/><path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"/><path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"/></svg>
-                </li><li class="list-payment__item">
-                  <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-visa"><title id="pi-visa">Visa</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/><path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"/></svg>
-                </li></ul>
-          </div></div>
+      <div class="footer__column footer__column--info">
+</div>
     </div>
     <div class="footer__content-bottom-wrapper page-width footer__content-bottom-wrapper--center">
       <div class="footer__copyright caption">
         <small class="copyright__content"
-          >&copy; 2024, <a href="index.html" title="">Creator Tattoo</a></small>
+          >&copy; 2024, <a href="index.html" title="">Sketch Master</a></small>
         <small class="copyright__content"><a target="_blank" rel="nofollow" href="https://www.shopify.com?utm_campaign=poweredby&amp;utm_medium=shopify&amp;utm_source=onlinestore"> </a></small></div>
     </div>
   </div>
