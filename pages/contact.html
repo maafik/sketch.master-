@@ -1,7 +1,12 @@
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
-    
+    <script>
+      if (window.location.pathname.endsWith('.html')) {
+          const newPath = window.location.pathname.replace('.html', '');
+          window.history.replaceState(null, '', newPath);
+      }
+  </script>
 <script
   id="Cookiebot"
   src="https://consent.cookiebot.com/uc.js"
