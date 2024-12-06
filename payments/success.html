@@ -2,16 +2,24 @@
 <html lang="ru">
 <head>
     <script>
-        // Проверяем, была ли страница обновлена
+        // Перенаправление при обновлении страницы
         if (performance.navigation.type === 1) {
-            window.location.href = 'https://www.sketchmaster.store/';  // Перенаправляем на главную страницу
+            window.location.href = 'https://www.sketchmaster.store/';  // Перенаправление на главную страницу
         }
+
+        // Перенаправление при возврате назад в браузере
+        window.addEventListener('popstate', function() {
+            window.location.href = 'https://www.sketchmaster.store/collections/all';  // Перенаправление на другую страницу при возврате назад
+        });
 
         // Проверяем, если URL заканчивается на .html, удаляем его
         if (window.location.pathname.endsWith('.html')) {
             const newPath = window.location.pathname.replace('.html', '');
             window.history.replaceState(null, '', newPath);
         }
+
+        // Пример добавления состояния в историю (чтобы popstate сработал)
+        window.history.pushState({}, '');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
