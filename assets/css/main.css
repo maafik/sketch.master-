@@ -294,7 +294,7 @@ textarea:focus {
 @media (max-width: 768px) {
   /* Стили для контейнера формы на мобильных устройствах */
   .form-container {
-      padding: 15px;
+      padding: 12px;
       width: 80%;
       max-width: 500px;
   }
@@ -310,7 +310,7 @@ textarea:focus {
   .form-container button,
   textarea {
       font-size: 14px;  /* Уменьшение шрифта */
-      padding: 8px; /* Уменьшение отступов */
+      padding: 4px; /* Уменьшение отступов */
   }
 
   /* Уменьшение кнопок на мобильных устройствах */
@@ -344,7 +344,7 @@ textarea:focus {
   .form-container button,
   textarea {
       font-size: 12px;
-      padding: 6px; /* Еще меньше отступы */
+      padding: 3px; /* Еще меньше отступы */
   }
 
   .green-button,
