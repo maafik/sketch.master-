@@ -152,7 +152,7 @@ body {
 
 .form-container {
   background: #000000;
-  padding: 30px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   width: 90%;
@@ -160,7 +160,7 @@ body {
 }
 
 .form-container h2 {
-  margin: 0 0 20px;
+  margin: 0 0 10px; /* Уменьшены отступы */
   text-align: center;
   font-size: 24px;
   font-weight: bold;
@@ -168,14 +168,14 @@ body {
 
 .form-container label {
   display: block;
-  margin: 6px 0 3px; /* Уменьшены отступы */
+  margin: 4px 0 2px; /* Уменьшены отступы */
   color: #ccc;
 }
 
 .form-container input, .form-container select, .form-container button {
   width: 100%;
-  padding: 10px; /* Уменьшены отступы внутри элементов */
-  margin-bottom: 10px; /* Уменьшен отступ между элементами */
+  padding: 14px; /* Увеличены отступы внутри элементов для комфортного ввода */
+  margin-bottom: 8px; /* Уменьшены отступы между полями */
   border-radius: 8px;
   border: none;
   outline: none;
@@ -261,11 +261,11 @@ body {
 
 textarea {
   width: 100%;
-  height: 100px;
+  height: 120px; /* Увеличена высота */
   resize: none;
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 6px; /* Уменьшен отступ внутри textarea */
+  padding: 10px; /* Увеличены отступы внутри textarea */
   font-size: 14px;
   box-sizing: border-box;
 }
@@ -288,7 +288,7 @@ textarea:focus {
 /* Мобильные устройства */
 @media screen and (max-width: 768px) {
   .form-container {
-      padding: 20px;
+      padding: 15px;
   }
 
   .form-container label {
@@ -298,8 +298,8 @@ textarea:focus {
   .form-container input,
   .form-container select,
   .form-container button {
-      padding: 8px; /* Меньше отступов внутри */
-      margin-bottom: 8px; /* Уменьшен отступ между элементами */
+      padding: 12px; /* Увеличены отступы внутри элементов */
+      margin-bottom: 6px; /* Уменьшены отступы между элементами */
   }
 
   .form-container h2 {
@@ -307,15 +307,15 @@ textarea:focus {
   }
 
   textarea {
-      font-size: 12px; /* Уменьшен шрифт */
-      padding: 6px; /* Меньше отступов внутри */
+      font-size: 14px; /* Размер шрифта как до изменений */
+      padding: 10px; /* Отступы внутри textarea увеличены */
   }
 }
 
 /* Очень маленькие экраны */
 @media screen and (max-width: 480px) {
   .form-container {
-      padding: 15px;
+      padding: 12px;
   }
 
   .form-container label {
@@ -325,8 +325,8 @@ textarea:focus {
   .form-container input,
   .form-container select,
   .form-container button {
-      padding: 6px; /* Минимальные отступы внутри */
-      margin-bottom: 6px; /* Очень маленькие отступы между элементами */
+      padding: 10px; /* Увеличены отступы внутри */
+      margin-bottom: 5px; /* Уменьшены отступы между элементами */
   }
 
   .form-container h2 {
@@ -335,7 +335,7 @@ textarea:focus {
 
   textarea {
       font-size: 12px;
-      padding: 4px;
+      padding: 8px; /* Отступы внутри textarea увеличены */
   }
 }
 
