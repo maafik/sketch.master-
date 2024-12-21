@@ -294,7 +294,7 @@ textarea:focus {
 @media (max-width: 768px) {
   /* Стили для контейнера формы на мобильных устройствах */
   .form-container {
-      padding: 20px;
+      padding: 15px;
       width: 80%;
       max-width: 500px;
   }
@@ -310,7 +310,7 @@ textarea:focus {
   .form-container button,
   textarea {
       font-size: 14px;  /* Уменьшение шрифта */
-      padding: 10px;
+      padding: 8px; /* Уменьшение отступов */
   }
 
   /* Уменьшение кнопок на мобильных устройствах */
@@ -322,7 +322,7 @@ textarea:focus {
 
   /* Стили для кнопки внизу формы */
   .price-section {
-      margin-top: 15px;
+      margin-top: 10px;
   }
 }
 
@@ -331,7 +331,7 @@ textarea:focus {
   .form-container {
       width: 90%;
       max-width: 400px;
-      padding: 15px;
+      padding: 10px;
   }
 
   .form-container h2 {
@@ -344,7 +344,7 @@ textarea:focus {
   .form-container button,
   textarea {
       font-size: 12px;
-      padding: 8px;
+      padding: 6px; /* Еще меньше отступы */
   }
 
   .green-button,
