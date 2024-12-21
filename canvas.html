@@ -98,7 +98,80 @@
           <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
             <h2><span>Привет! Меня зовут</span><span class="underlight">Ирина,</span><span> я художник и дизайнер.</span></h2>
             <p> Я создаю уникальные картины по вашим фотографиям на холсте. Моя цель — передать эмоции и моменты, которые важны для вас, превратив их в настоящее произведение искусства.</p>
-            <a href="http://www.irisart1.ru/contact" class="btn-get-started">Заказать принт<br></a>
+            <body>
+              <!-- Ваша существующая структура -->
+              <div>
+                <a class="btn-get-started" onclick="openForm()">Заказать<br></a>
+              </div>
+            
+              <div class="overlay" id="formOverlay" onclick="closeOnBackground(event)">
+                <div class="form-container">
+                  <div class="price-section">
+                    <p><strong>Цены:</strong></p>
+                    <ul>
+                      <li>60x100 см: 3 292 рублей</li>
+                      <li>40x60 см: 2 837 рублей</li>
+                      <li>60x80 см: 3 270 рублей</li>
+                      <li>50x70 см: 2 912 рублей</li>
+                      <li>40x50 см: 2 497 рублей</li>
+                      <li>70x70 см: 3 270 рублей</li>
+                      <li>30x40 см: 2 132 рублей</li>
+                    </ul>
+                  </div>
+                  <button class="green-button" onclick="nextForm()">Заказать</button>
+                </div>
+              </div>
+            
+              <div class="overlay" id="nextFormOverlay" onclick="closeOnBackground(event)">
+                <div class="form-container">
+                  <h2>Оформление заказа</h2>
+                  <form id="orderForm" class="form-styled" onsubmit="submitForm(event)">
+                    <!-- Поля формы -->
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+            
+                    <label for="paintingSize">Размер картины:</label>
+                    <select id="paintingSize" name="paintingSize" required>
+                      <option value="60x100">60x100 см - 3 292 руб.</option>
+                      <option value="40x60">40x60 см - 2 837 руб.</option>
+                      <option value="60x80">60x80 см - 3 270 руб.</option>
+                      <option value="50x70">50x70 см - 2 912 руб.</option>
+                      <option value="40x50">40x50 см - 2 497 руб.</option>
+                      <option value="70x70">70x70 см - 3 270 руб.</option>
+                      <option value="30x40">30x40 см - 2 132 руб.</option>
+                    </select>
+            
+                    <label for="phone">Номер телефона:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+            
+                    <label for="contactPref">Предпочтительное средство связи:</label>
+                    <select id="contactPref" name="contactPref" required>
+                      <option value="whatsapp">WhatsApp</option>
+                      <option value="telegram">Telegram</option>
+                    </select>
+            
+                    <label for="examplePhoto">Прикрепите фото для картины (можем обработать и улучшить качество):</label>
+                    <input type="file" id="examplePhoto" name="examplePhoto" accept="image/*,.pdf,.doc,.docx" multiple required>
+            
+                    <label for="workDescription">Опишите вашу работу:</label>
+                    <textarea id="workDescription" name="workDescription" rows="5" placeholder="Если хотите что-то изменить или внести в фото для картины, напишите здесь." ></textarea>
+            
+                    <button type="submit">Отправить</button>
+                  </form>
+                </div>
+              </div>
+            
+              <div class="overlay" id="thankYouOverlay" onclick="closeOnBackground(event)">
+                <div class="form-container">
+                  <h2>Спасибо за заказ!</h2>
+                  <p class="thank-you">Чтобы быстрее получить ответ, отправьте «+» в чат.</p>
+                  <p class="thank-you">
+                    <a href="https://t.me/your_telegram" target="_blank" id="telegramLink">Telegram</a> |
+                    <a href="https://wa.me/your_whatsapp" target="_blank" id="whatsappLink">WhatsApp</a>
+                  </p>
+                </div>
+              </div>
+            </body>
           </div>
         </div>
       </div>

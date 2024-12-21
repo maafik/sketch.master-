@@ -98,7 +98,76 @@
           <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
             <h2><span>Привет! Меня зовут</span><span class="underlight">Ирина,</span><span> я художник и дизайнер.</span></h2>
             <p> Создаю уникальные принты для футболок и чашек, которые подчеркнут вашу индивидуальность и идеально подойдут вашему стилю. Закажите персонализированный дизайн для вашего бренда или себя!</p>
-            <a href="http://www.irisart1.ru/contact" class="btn-get-started">Заказать принт<br></a>
+            <body>
+              <!-- Ваша существующая структура -->
+              <div>
+                <a class="btn-get-started" onclick="openForm()">Заказать<br></a>
+              </div>
+            
+              <div class="overlay" id="formOverlay" onclick="closeOnBackground(event)">
+                <div class="form-container">
+                  <div class="price-section">
+                    <p><strong>Цены:</strong></p>
+                    <ul>
+                      <li>Футболка с полным принтом (100% хлопок): 1750 рублей</li>
+                      <li>Принт A4: 1750 рублей</li>
+                      <li>Принт A3: 1750 рублей</li>
+                      <li>Чашка с принтом: 999 рублей</li>
+                    </ul>
+                  </div>
+                  <button class="green-button" onclick="nextForm()">Заказать</button>
+                </div>
+              </div>
+            
+              <div class="overlay" id="nextFormOverlay" onclick="closeOnBackground(event)">
+                <div class="form-container">
+                  <h2>Оформление заказа</h2>
+                  <form id="orderForm" class="form-styled" onsubmit="submitForm(event)">
+                    <!-- Поля формы -->
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+            
+                    <label for="orderType">Что хотите заказать:</label>
+                    <select id="orderType" name="orderType" required>
+                      <option value="tshirt_full">Футболка с полным принтом</option>
+                      <option value="tshirt_a4">Принт A4 на футболке</option>
+                      <option value="tshirt_a3">Принт A3 на футболке</option>
+                      <option value="mug">Чашка с принтом</option>
+                    </select>
+            
+                    <label for="phone">Номер телефона:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+            
+                    <label for="contactPref">Предпочтительное средство связи:</label>
+                    <select id="contactPref" name="contactPref" required>
+                      <option value="whatsapp">WhatsApp</option>
+                      <option value="telegram">Telegram</option>
+                    </select>
+            
+                    <label for="examplePhoto">Прикрепите пример дизайна:</label>
+                    <input type="file" id="examplePhoto" name="examplePhoto" accept="image/*,.pdf,.doc,.docx" multiple required>
+            
+                    <label for="workDescription">Опишите вашу работу:</label>
+                    <textarea id="workDescription" name="workDescription" rows="5" placeholder="Если есть дополнительные пожелания к дизайну, напишите здесь."></textarea>
+            
+                    <button type="submit">Отправить</button>
+                  </form>
+                </div>
+              </div>
+            
+              <div class="overlay" id="thankYouOverlay" onclick="closeOnBackground(event)">
+                <div class="form-container">
+                  <h2>Спасибо за заказ!</h2>
+                  <p class="thank-you">Чтобы быстрее получить ответ, отправьте «+» в чат.</p>
+                  <p class="thank-you">
+                    <a href="https://t.me/your_telegram" target="_blank" id="telegramLink">Telegram</a> |
+                    <a href="https://wa.me/your_whatsapp" target="_blank" id="whatsappLink">WhatsApp</a>
+                  </p>
+                </div>
+              </div>
+            </body>
+            
+            
           </div>
         </div>
       </div>

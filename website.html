@@ -98,7 +98,76 @@
           <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
             <h2><span>Привет! Меня зовут</span><span class="underlight">Ирина,</span><span> я художник и веб-дизайнер.</span></h2>
             <p>Я создаю уникальные сайты, которые подчеркивают ваш бренд и стиль. Моя цель — сделать дизайн, который не только привлекателен, но и удобен для ваших пользователей.</p>
-            <a href="http://www.irisart1.ru/contact" class="btn-get-started">Заказать эскиз<br></a>
+            <body>
+              <!-- Ваша существующая структура -->
+              <div>
+                <a class="btn-get-started" onclick="openForm()">Заказать<br></a>
+              </div>
+            
+              <div class="overlay" id="formOverlay" onclick="closeOnBackground(event)">
+                <div class="form-container">
+                  <div class="price-section">
+                    <p><strong>Цены:</strong></p>
+                    <ul>
+                      <li>Одностраничный сайт: от 15 000 рублей</li>
+                      <li>Многостраничный сайт: от 40 000 рублей</li>
+                      <li>Сложный сайт (интернет-магазин, портал): от 60 000 рублей</li>
+                      <li>Написание кода: от 5000 рублей</li>
+                    </ul>
+                  </div>
+                  <button class="green-button" onclick="nextForm()">Заказать</button>
+                </div>
+              </div>
+            
+              <div class="overlay" id="nextFormOverlay" onclick="closeOnBackground(event)">
+                <div class="form-container">
+                  <h2>Оформление заказа</h2>
+                  <form id="orderForm" class="form-styled" onsubmit="submitForm(event)">
+                    <!-- Поля формы -->
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+            
+                    <label for="orderType">Что хотите заказать:</label>
+                    <select id="orderType" name="orderType" required>
+                      <option value="one_page_site">Одностраничный сайт</option>
+                      <option value="multi_page_site">Многостраничный сайт</option>
+                      <option value="complex_site">Сложный сайт</option>
+                      <option value="code_development">Написание кода</option>
+                      <option value="other">Другое</option>
+                    </select>
+            
+                    <label for="phone">Номер телефона:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+            
+                    <label for="contactPref">Предпочтительное средство связи:</label>
+                    <select id="contactPref" name="contactPref" required>
+                      <option value="whatsapp">WhatsApp</option>
+                      <option value="telegram">Telegram</option>
+                    </select>
+            
+                    <label for="examplePhoto">Прикрепите ТЗ или примеры работы:</label>
+                    <input type="file" id="examplePhoto" name="examplePhoto" accept="image/*,.pdf,.doc,.docx" multiple required>
+            
+                    <label for="workDescription">Опишите вашу задачу:</label>
+                    <textarea id="workDescription" name="workDescription" rows="5" placeholder="Напишите детали заказа, стиль, формат и другие пожелания."></textarea>
+            
+                    <button type="submit">Отправить</button>
+                  </form>
+                </div>
+              </div>
+            
+              <div class="overlay" id="thankYouOverlay" onclick="closeOnBackground(event)">
+                <div class="form-container">
+                  <h2>Спасибо за заказ!</h2>
+                  <p class="thank-you">Чтобы быстрее получить ответ, отправьте «+» в чат.</p>
+                  <p class="thank-you">
+                    <a href="https://t.me/your_telegram" target="_blank" id="telegramLink">Telegram</a> |
+                    <a href="https://wa.me/your_whatsapp" target="_blank" id="whatsappLink">WhatsApp</a>
+                  </p>
+                </div>
+              </div>
+            </body>
+            
           </div>
         </div>
       </div>
