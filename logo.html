@@ -27,7 +27,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- Yandex.Metrika counter -->
+<!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
   m[i].l=1*new Date();
@@ -35,14 +35,14 @@
   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-  ym(98178465, "init", {
+  ym(99130561, "init", {
        clickmap:true,
        trackLinks:true,
        accurateTrackBounce:true,
        webvisor:true
   });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/98178465" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/99130561" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
   <!-- =======================================================
@@ -99,6 +99,7 @@
             <h2><span>Привет! Меня зовут</span><span class="underlight">Ирина,</span><span>я занимаюсь разработкой логотип на заказ и дизайн коробок.</span></h2>
             <p>Моя цель — создать качественные и уникальные работы, которые помогут вам успешно в бизнесе и поставленных целей.</p>
             <body>
+              <!-- Ваша существующая структура -->
               <div>
                 <a class="btn-get-started" onclick="openForm()">Заказать<br></a>
               </div>
@@ -120,6 +121,7 @@
                 <div class="form-container">
                   <h2>Оформление заказа</h2>
                   <form id="orderForm" class="form-styled" onsubmit="submitForm(event)">
+                    <!-- Ваши поля формы -->
                     <label for="name">Имя:</label>
                     <input type="text" id="name" name="name" placeholder="Ваше имя" required>
             
@@ -155,8 +157,8 @@
                   <h2>Спасибо за заказ!</h2>
                   <p class="thank-you">Чтобы быстрее получить ответ, отправьте «+» в чат.</p>
                   <p class="thank-you">
-                    <a href="https://t.me/your_telegram" target="_blank">Telegram</a> |
-                    <a href="https://wa.me/your_whatsapp" target="_blank">WhatsApp</a>
+                    <a href="https://t.me/your_telegram" target="_blank" id="telegramLink">Telegram</a> |
+                    <a href="https://wa.me/your_whatsapp" target="_blank" id="whatsappLink">WhatsApp</a>
                   </p>
                 </div>
               </div>
@@ -194,28 +196,25 @@
             
                   const formData = new FormData(document.getElementById('orderForm'));
             
-                  // Отправляем сообщение в Telegram
+                  // Ваши существующие действия для Telegram
                   const message = `
-            Новый заказ:
-            Имя: ${formData.get('name')}
-            Тип заказа: ${formData.get('orderType')}
-            Телефон: ${formData.get('phone')}
-            Контакт: ${formData.get('contactPref')}
-            Описание работы: ${formData.get('workDescription')}
+                    Новый заказ:
+                    Имя: ${formData.get('name')}
+                    Тип заказа: ${formData.get('orderType')}
+                    Телефон: ${formData.get('phone')}
+                    Контакт: ${formData.get('contactPref')}
+                    Описание работы: ${formData.get('workDescription')}
                   `;
-            
                   const files = formData.getAll('examplePhoto');
                   const chatId = '5929919501';
                   const token = '7349206398:AAEthCsuxGhjdrvUOnFwFD478q7y474kRMM';
             
-                  // Отправка текстовой информации
                   await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ chat_id: chatId, text: message }),
                   });
             
-                  // Отправка файлов
                   for (const file of files) {
                     const fileFormData = new FormData();
                     fileFormData.append('chat_id', chatId);
@@ -231,8 +230,18 @@
                   document.getElementById('nextFormOverlay').style.display = 'none';
                   document.getElementById('thankYouOverlay').style.display = 'flex';
                 }
+            
+                // Добавляем обработчики событий для конверсий
+                document.getElementById('telegramLink').addEventListener('click', function () {
+                  ym(99130561, 'reachGoal', 'telegram_click');
+                });
+            
+                document.getElementById('whatsappLink').addEventListener('click', function () {
+                  ym(99130561, 'reachGoal', 'whatsapp_click');
+                });
               </script>
             </body>
+            
             
           </div>
         </div>
