@@ -231,14 +231,15 @@
                   document.getElementById('thankYouOverlay').style.display = 'flex';
                 }
             
-                // Добавляем обработчики событий для конверсий
-                document.getElementById('telegramLink').addEventListener('click', function () {
-                  ym(99130561, 'reachGoal', 'telegram_click');
-                });
-            
-                document.getElementById('whatsappLink').addEventListener('click', function () {
-                  ym(99130561, 'reachGoal', 'whatsapp_click');
-                });
+  // Для кнопки Telegram
+  document.getElementById('telegramLink').addEventListener('click', function () {
+    ym(99130561, 'reachGoal', 'telegram_click');  // Замените XXXXXX на номер вашего счётчика
+  });
+
+  // Для кнопки WhatsApp
+  document.getElementById('whatsappLink').addEventListener('click', function () {
+    ym(99130561, 'reachGoal', 'whatsapp_click');  // Замените XXXXXX на номер вашего счётчика
+  });
               </script>
             </body>
             
